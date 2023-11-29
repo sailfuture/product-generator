@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="productButton">Generate Product</button>
+    <h1 id="productDisplay" class="text-3xl font-bold"></h1>
+</div>
+
+
+  <script>
+    document.getElementById('productButton').addEventListener('click', function() {
+    const products = [
+        "Melissa & Doug Wooden Building Blocks Set",
+        "Dr. Seuss's Beginner Book Collection",
+        // ... Add all other products here
+        "Masterclass Online Courses Subscription"
+    ];
+
+    const randomProduct = products[Math.floor(Math.random() * products.length)];
+    document.getElementById('productDisplay').textContent = randomProduct;
+});
+  </script>
+</body>
+</html>
