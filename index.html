@@ -1,26 +1,83 @@
+
+
+
 <!doctype html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-<style>
-    html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-}
-</style>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f7fafc; /* Add a background color */
+    }
+
+    /* Add animation keyframes for text cycling */
+    @keyframes textCycle {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    #productDisplay {
+      animation: textCycle 0s infinite; /* Adjust animation duration as needed */
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333; /* Change text color */
+    }
+
+    /* Center the button */
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #productButton {
+      background-color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #productButton:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Rest of your CSS styles */
+  </style>
 </head>
 <body>
-
-<div class="relative isolate overflow-hidden bg-gray-900 w-full h-screen">
+  <div class="relative isolate overflow-hidden bg-gray-900 w-full h-screen">
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8 h-screen h-full align-middle">
       <div class="mx-auto max-w-2xl text-center h-screen h-full align-middle">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" id="productDisplay"></h2>
-        <div class="mt-10 flex items-center justify-center gap-x-6 align-middle">
-            <button id="productButton" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Generate Product</button>
+        <h2 id="productDisplay"></h2>
+        <div class="mt-10 align-middle button-container"> <!-- Updated button container -->
+          <button id="productButton">Generate Product</button>
         </div>
       </div>
     </div>
@@ -34,11 +91,8 @@ body {
       </defs>
     </svg>
   </div>
-  
-
 
   <script>
-    document.getElementById('productButton').addEventListener('click', function() {
     const products = [
     "Melissa & Doug Wooden Building Blocks Set",
     "Dr. Seuss's Beginner Book Collection",
@@ -142,9 +196,28 @@ body {
     "Masterclass Online Courses Subscription"
     ];
 
-    const randomProduct = products[Math.floor(Math.random() * products.length)];
-    document.getElementById('productDisplay').textContent = randomProduct;
-});
+    const productDisplay = document.getElementById('productDisplay');
+    const productButton = document.getElementById('productButton');
+    let currentIndex = 0;
+    let isCycling = false;
+
+    function cycleProducts() {
+      productDisplay.textContent = products[currentIndex];
+      currentIndex = (currentIndex + 1) % products.length;
+    }
+
+    productButton.addEventListener('click', function () {
+      if (!isCycling) {
+        isCycling = true;
+        const interval = setInterval(cycleProducts, 100); // Cycle quickly
+        setTimeout(() => {
+          clearInterval(interval);
+          setTimeout(() => {
+            isCycling = false;
+          }, 4000); // Stop cycling after 4 seconds
+        }, 4000); // Cycle for 4 seconds
+      }
+    });
   </script>
 </body>
 </html>
