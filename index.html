@@ -61,7 +61,7 @@
       border: none;
       border-radius: 0.25rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease; /* Add transitions for smooth change */
     }
 
     #productButton:hover {
@@ -74,22 +74,13 @@
 <body>
   <div class="relative isolate overflow-hidden bg-gray-900 w-full h-screen">
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8 h-screen h-full align-middle">
-      <div class="mx-auto max-w-2xl text-center h-screen h-full align-middle">
+      <div class="mx-auto text-center h-screen h-full align-middle">
         <h2 id="productDisplay"></h2>
         <div class="mt-10 align-middle button-container"> <!-- Updated button container -->
           <button id="productButton">Generate Product</button>
         </div>
       </div>
     </div>
-    <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]" aria-hidden="true">
-      <circle cx="512" cy="512" r="512" fill="url(#8d958450-c69f-4251-94bc-4e091a323369)" fill-opacity="0.7" />
-      <defs>
-        <radialGradient id="8d958450-c69f-4251-94bc-4e091a323369">
-          <stop stop-color="#7775D6" />
-          <stop offset="1" stop-color="#E935C1" />
-        </radialGradient>
-      </defs>
-    </svg>
   </div>
 
   <script>
@@ -202,20 +193,27 @@
     let isCycling = false;
 
     function cycleProducts() {
+      // Generate a random index
+      currentIndex = Math.floor(Math.random() * products.length);
       productDisplay.textContent = products[currentIndex];
-      currentIndex = (currentIndex + 1) % products.length;
     }
 
     productButton.addEventListener('click', function () {
       if (!isCycling) {
         isCycling = true;
+        productButton.disabled = true; // Disable the button during animation
+        productButton.style.backgroundColor = '#6b46c1'; // Change background color to dark purple
+        productButton.style.color = '#f7fafc'; // Change text color to light gray
+        productButton.style.border = '2px solid #fff'; // Add white border
         const interval = setInterval(cycleProducts, 100); // Cycle quickly
         setTimeout(() => {
           clearInterval(interval);
-          setTimeout(() => {
-            isCycling = false;
-          }, 4000); // Stop cycling after 4 seconds
-        }, 4000); // Cycle for 4 seconds
+          isCycling = false;
+          productButton.disabled = false; // Re-enable the button immediately
+          productButton.style.backgroundColor = 'white'; // Reset background color
+          productButton.style.color = '#333'; // Reset text color
+          productButton.style.border = 'none'; // Reset border
+        }, 4000); // Stop cycling after 4 seconds
       }
     });
   </script>
