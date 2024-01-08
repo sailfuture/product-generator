@@ -84,9 +84,136 @@
     </div>
   </div>
   
+<!-- Demographic Data -->
+  <!-- <div class="container mx-auto p-6">
+    <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <li class="overflow-hidden rounded-xl border border-gray-200">
+            <h3 class="px-6 py-4 text-lg font-semibold">Age Group</h3>
+            <dl class="divide-y divide-gray-100">
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">18-24</dt><dd class="text-gray-900">10%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">25-34</dt><dd class="text-gray-900">20%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">35-44</dt><dd class="text-gray-900">30%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">45-54</dt><dd class="text-gray-900">25%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">55+</dt><dd class="text-gray-900">15%</dd>
+                </div>
+            </dl>
+        </li>
+
+
+        <li class="overflow-hidden rounded-xl border border-gray-200">
+            <h3 class="px-6 py-4 text-lg font-semibold">Gender</h3>
+            <dl class="divide-y divide-gray-100">
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Male</dt><dd class="text-gray-900">50%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Female</dt><dd class="text-gray-900">50%</dd>
+                </div>
+            </dl>
+        </li>
+
+
+        <li class="overflow-hidden rounded-xl border border-gray-200">
+            <h3 class="px-6 py-4 text-lg font-semibold">Income Level</h3>
+            <dl class="divide-y divide-gray-100">
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Low</dt><dd class="text-gray-900">10%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Medium</dt><dd class="text-gray-900">45%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">High</dt><dd class="text-gray-900">45%</dd>
+                </div>
+            </dl>
+        </li>
+
+
+        <li class="overflow-hidden rounded-xl border border-gray-200">
+            <h3 class="px-6 py-4 text-lg font-semibold">Occupation</h3>
+            <dl class="divide-y divide-gray-100">
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Students</dt><dd class="text-gray-900">20%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Professionals</dt><dd class="text-gray-900">30%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Educators</dt><dd class="text-gray-900">20%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Retirees</dt><dd class="text-gray-900">15%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Others</dt><dd class="text-gray-900">15%</dd>
+                </div>
+            </dl>
+        </li>
+
+
+        <li class="overflow-hidden rounded-xl border border-gray-200">
+            <h3 class="px-6 py-4 text-lg font-semibold">Interests/Hobbies</h3>
+            <dl class="divide-y divide-gray-100">
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Reading</dt><dd class="text-gray-900">80%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Technology</dt><dd class="text-gray-900">60%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Travel</dt><dd class="text-gray-900">40%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Education</dt><dd class="text-gray-900">30%</dd>
+                </div>
+                <div class="flex justify-between px-6 py-3">
+                    <dt class="text-gray-600">Outdoor Activities</dt><dd class="text-gray-900">20%</dd>
+                </div>
+            </dl>
+        </li>
+
+
+    </ul>
+</div> -->
+<!-- Demographic Data -->
   
 
   <script>
+
+const demographics = {
+  "Melissa & Doug Wooden Building Blocks Set": {
+        "Age Group": {"18-24": "10%", "25-34": "20%", "35-44": "30%", "45-54": "25%", "55+": "15%"},
+        "Gender": {"Male": "50%", "Female": "50%"},
+        "Income Level": {"Low": "10%", "Medium": "45%", "High": "45%"},
+        "Occupation": {"Students": "20%", "Professionals": "30%", "Educators": "20%", "Retirees": "15%", "Others": "15%"},
+        "Interests/Hobbies": {"Reading": "80%", "Technology": "60%", "Travel": "40%", "Education": "30%", "Outdoor Activities": "20%"},
+        "Reasons for Purchase": {"For reading": "70%", "For professional use": "20%", "As a gift": "10%"},
+        "Geographic Location": {"Urban Areas": "60%", "Suburban Areas": "30%", "Rural Areas": "10%"},
+        "Education Level": {"High School": "20%", "Bachelor's Degree": "40%", "Graduate Degree": "40%"}
+    },
+    "Dr. Seuss's Beginner Book Collection": {
+        "Age Group": {"18-24": "5%", "25-34": "15%", "35-44": "30%", "45-54": "25%", "55+": "25%"},
+        "Gender": {"Male": "40%", "Female": "60%"},
+        "Income Level": {"Low": "15%", "Medium": "50%", "High": "35%"},
+        "Occupation": {"Students": "10%", "Professionals": "25%", "Educators": "30%", "Retirees": "20%", "Others": "15%"},
+        "Interests/Hobbies": {"Reading": "90%", "Education": "70%", "Creative Writing": "30%", "Parenting": "40%", "Art": "20%"},
+        "Reasons for Purchase": {"For children": "80%", "For educational use": "15%", "As a gift": "5%"},
+        "Geographic Location": {"Urban Areas": "50%", "Suburban Areas": "40%", "Rural Areas": "10%"},
+        "Education Level": {"High School": "25%", "Bachelor's Degree": "35%", "Graduate Degree": "30%", "Others": "10%"}
+    },
+    // ... Add for all products
+};
+
     const products = [
     "Melissa & Doug Wooden Building Blocks Set",
     "Dr. Seuss's Beginner Book Collection",
@@ -196,10 +323,35 @@
     let isCycling = false;
 
     function cycleProducts() {
-      // Generate a random index
-      currentIndex = Math.floor(Math.random() * products.length);
-      productDisplay.textContent = products[currentIndex];
+    currentIndex = Math.floor(Math.random() * products.length);
+    const selectedProduct = products[currentIndex];
+    productDisplay.textContent = selectedProduct;
+
+    const demographicData = demographics[selectedProduct];
+    displayDemographics(demographicData);
+}
+
+function displayDemographics(data) {
+    const demographicsContainer = document.getElementById('demographics');
+    demographicsContainer.innerHTML = ''; // Clear existing data
+
+    for (const [category, values] of Object.entries(data)) {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+        categoryDiv.textContent = `${category}:`;
+
+        const valuesList = document.createElement('ul');
+        for (const [key, value] of Object.entries(values)) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${key}: ${value}`;
+            valuesList.appendChild(listItem);
+        }
+
+        categoryDiv.appendChild(valuesList);
+        demographicsContainer.appendChild(categoryDiv);
     }
+}
+
 
     productButton.addEventListener('click', function () {
       if (!isCycling) {
